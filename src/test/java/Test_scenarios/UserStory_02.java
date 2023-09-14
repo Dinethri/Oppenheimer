@@ -5,21 +5,13 @@ import Config.Connection_Object;
 import Object_Model.File_Submission_Model;
 import Object_Model.Login_Model;
 import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-import org.yaml.snakeyaml.Yaml;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStream;
-import java.util.Map;
-
-public class FormSubmissionTest
+public class UserStory_02
 {
     private WebDriver driver;
 //    private File_Submission_Model csvSubmission;

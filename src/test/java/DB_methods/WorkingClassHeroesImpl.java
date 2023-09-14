@@ -1,7 +1,6 @@
 package DB_methods;
 
 import Config.DBConnection;
-import Dto.Hero;
 import io.restassured.response.Response;
 
 import java.sql.Connection;

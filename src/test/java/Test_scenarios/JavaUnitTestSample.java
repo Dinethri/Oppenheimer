@@ -39,18 +39,7 @@ public class JavaUnitTestSample {
 //        assertTrue(loginPage.isLoaded());
     }
 
-//    @Test(priority = 2)
-//    public void nextStage(){
-//        System.out.println("=====================3");
-////        try {
-////
-////            loginPage.login("clerk", "clerk");
-////            Thread.sleep(5000);
-////
-////        } catch(Exception e){
-////            System.out.println(e);
-////        }
-//    }
+
 
     @AfterTest
     public void closePro() {
