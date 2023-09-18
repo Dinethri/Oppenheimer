@@ -18,11 +18,14 @@ public class BookKeeperDashboardPage {
     public void clickGenarateTax() {
         driver.findElement(generateTax).click();
     }
+
     public String responseGenarateTax() {
         return driver.findElement(taxGenaratedMessage).getText();
     }
+
     public void implicitlyWait() {
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);;
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        ;
     }
 }
 

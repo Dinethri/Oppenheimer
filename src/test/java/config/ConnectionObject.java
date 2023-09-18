@@ -10,13 +10,8 @@ public class ConnectionObject {
     public WebDriver getDriver() {
 
         WebDriverManager.chromedriver().setup();
-
-//        WebDriver driver = new ChromeDriver();
-
-//        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Sasitha\\Desktop\\webDriver\\chromedriver.exe");
-        ChromeOptions options = new ChromeOptions();
-//        options.addArguments("--remote-allow-origins=*");
-
-        return new ChromeDriver(options);
+        ChromeDriver chromeDriver = new ChromeDriver();
+        chromeDriver.manage().timeouts().implicitlyWait(10, java.util.concurrent.TimeUnit.SECONDS);
+        return chromeDriver;
     }
 }

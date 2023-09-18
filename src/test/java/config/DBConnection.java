@@ -6,6 +6,7 @@ import java.sql.SQLException;
 
 public class DBConnection {
     private static Connection connection;
+
     private DBConnection() {
         // Private constructor to prevent instantiation
     }

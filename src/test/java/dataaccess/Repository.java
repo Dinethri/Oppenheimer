@@ -10,11 +10,12 @@ import java.sql.SQLException;
 
 public class Repository {
 
-    private static final String SQL_GET_BY_ID= "SELECT * FROM working_class_heroes WHERE natid = ?";
+    private static final String SQL_GET_BY_ID = "SELECT * FROM working_class_heroes WHERE natid = ?";
 
     private Connection connection = null;
     private PreparedStatement preparedStatement = null;
     private ResultSet resultSet = null;
+
     public Hero getUserById(String natid) {
 
         Hero hero = new Hero();

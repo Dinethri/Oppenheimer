@@ -20,8 +20,8 @@ public class DashboardPage {
 
     public void selectUploadCSV() {
         driver
-            .findElement(selectUploadCSV)
-            .click();
+                .findElement(selectUploadCSV)
+                .click();
     }
 
 }

@@ -28,11 +28,12 @@ public class UploadCSVPage {
     }
 
     public void implicitlyWait() {
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);;
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        ;
     }
 
     public String getResponseMessage() {
-       return this.driver.findElement(getMessage).getText();
+        return this.driver.findElement(getMessage).getText();
     }
 }
 
