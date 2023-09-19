@@ -9,7 +9,9 @@ import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.testng.Assert;
-import org.testng.annotations.*;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
+import org.testng.annotations.Test;
 import specs.ApiSpecifications;
 
 import java.io.FileNotFoundException;
@@ -41,7 +43,7 @@ public class UserStory05 {
     /**
      * User Story 05/AC02
      */
-    @Test(priority = 1, description = "validate natid param")
+    @Test(priority = 1, description = "validate natid parameters")
     public void validateNatid() {
 
         this.natID = Integer.parseInt(this.hero.getNatid().split("-")[1]);
@@ -68,9 +70,8 @@ public class UserStory05 {
     /**
      * User Story 05/AC4
      */
-    @Test(priority = 3, description = "validate natid param")
+    @Test(priority = 3, description = "validate natid parameters")
     public void validateResponse() {
-
         JsonObject jsonResponse = JsonParser
                 .parseString(response
                         .getBody()

@@ -9,7 +9,9 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.json.JSONObject;
 import org.testng.Assert;
-import org.testng.annotations.*;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
+import org.testng.annotations.Test;
 import specs.ApiSpecifications;
 
 import java.io.FileNotFoundException;
@@ -75,7 +77,7 @@ public class UserStory01 {
      */
     @Test(priority = 3, description = "Validate that the system rejects duplicate <natid> entries as unacceptable behavior")
     public void testHeroRedundancyCheck() {
-        logger.info("invoked testHeroCreation test");
+        logger.info("invoked testHeroCreation Reject duplicates test");
         JSONObject heroJSON = new JSONObject(hero);
         this.response = given()
                 .spec(ApiSpecifications.getRequestSpecification())

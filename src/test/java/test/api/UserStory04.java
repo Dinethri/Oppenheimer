@@ -9,7 +9,9 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.json.JSONObject;
 import org.testng.Assert;
-import org.testng.annotations.*;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
+import org.testng.annotations.Test;
 import specs.ApiSpecifications;
 
 import java.io.FileNotFoundException;
@@ -41,7 +43,7 @@ public class UserStory04 {
      */
     @Test(priority = 1, description = "Verify invalid data format for request voucher creation")
     public void validatePayloadforVoucher() {
-        logger.info("invoked validatePayload test");
+        logger.info("invoked validatePayload voucher test");
         Assert.assertTrue(this.vouchers.getNatid().matches("natid-\\d{1,7}"), "Invalid natid format");
         Assert.assertTrue(this.vouchers.getName().matches("[A-Za-z\\s]{1,100}"), "Invalid name format");
         Assert.assertTrue(this.vouchers.getGender().equals("MALE") || this.vouchers.getGender().equals("FEMALE"), "Invalid gender");
@@ -76,9 +78,9 @@ public class UserStory04 {
     /**
      * User Story 04/AC03
      */
-    @Test(priority = 3, dependsOnMethods = "validatePayloadforVoucher", description = "Verify that the system successfully create the 'vouchers' with specified payload")
+    @Test(priority = 3, dependsOnMethods = "validatePayloadforVoucher", description = "Verify that the system reject the 'vouchers' with invalid payload")
     public void voucherAPIInvalidCreation() throws FileNotFoundException {
-        logger.info("invoked workingClassCreation test");
+        logger.info("invoked invalidWorkingClassCreation test");
         Gson gson = new Gson();
         this.vouchers = gson.fromJson(new FileReader(VOUCHER_DATA), Vouchers.class);
         this.vouchers.setVouchers(null);

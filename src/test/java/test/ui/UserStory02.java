@@ -1,13 +1,14 @@
 package test.ui;
 
 import com.opencsv.CSVReader;
-
 import com.opencsv.exceptions.CsvValidationException;
 import model.Hero;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.testng.Assert;
-import org.testng.annotations.*;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
+import org.testng.annotations.Test;
 import pages.DashboardPage;
 import pages.LoginPage;
 import pages.UploadCSVPage;
@@ -49,7 +50,7 @@ public class UserStory02 extends BaseTest {
      */
     @Test(priority = 1, description = "Verify user can upload the csv file")
     public void testUploadCSVButtonClick() {
-        logger.info("invoked user story 02 / AC: 01");
+        logger.info("invoked userUpload csv");
 
         Assert.assertEquals(super.getDriver().getCurrentUrl(),
                 (super.getResource().getString("base_url") + "clerk/upload-csv"),
@@ -61,7 +62,7 @@ public class UserStory02 extends BaseTest {
      */
     @Test(priority = 2, description = "Verify csv file contains valid data")
     public void testCSVFields() throws CsvValidationException, IOException {
-        logger.info("invoked user story 02 / AC: 02");
+        logger.info("invoked csvFile validations");
         String[] record;
         Hero hero = new Hero();
         while ((record = reader.readNext()) != null) {
@@ -92,7 +93,7 @@ public class UserStory02 extends BaseTest {
      */
     @Test(priority = 3, description = "Verify user can upload the csv file")
     public void testUploadCSV() {
-        logger.info("invoked user story 02 / AC: 03");
+        logger.info("invoked userUpload csv");
         UploadCSVPage uploadCSVPage = new UploadCSVPage(super.getDriver());
         uploadCSVPage.selectCSV(super.getResource().getString("file_path"));
         uploadCSVPage.createButtonClick();
@@ -107,7 +108,7 @@ public class UserStory02 extends BaseTest {
      */
     @Test(priority = 4, description = "Verify user can upload the csv file")
     public void testUploadInvalidCSV() {
-        logger.info("invoked user story 02 / AC: 04");
+        logger.info("invoked userUnsuccessful upload");
         UploadCSVPage uploadCSVPage = new UploadCSVPage(super.getDriver());
         uploadCSVPage.selectCSV(super.getResource().getString("file_path"));
         uploadCSVPage.createButtonClick();

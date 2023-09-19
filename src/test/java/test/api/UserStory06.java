@@ -9,7 +9,7 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import specs.ApiSpecifications;
 
-import static io.restassured.RestAssured.*;
+import static io.restassured.RestAssured.given;
 
 @Listeners(config.ListenerTest.class)
 public class UserStory06 {

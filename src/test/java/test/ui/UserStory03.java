@@ -3,7 +3,8 @@ package test.ui;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.testng.Assert;
-import org.testng.annotations.*;
+import org.testng.annotations.Listeners;
+import org.testng.annotations.Test;
 import pages.BookKeeperDashboardPage;
 import pages.LoginPage;
 
@@ -17,7 +18,7 @@ public class UserStory03 extends BaseTest {
      */
     @Test(priority = 1, description = "Verify that user can generate a Tax Relief File")
     public void testBookDashboard() throws InterruptedException {
-        logger.info("invoked testBookDashboard test");
+        logger.info("invoked bookKeeper dashboard");
         LoginPage loginPage = new LoginPage(super.getDriver());
         loginPage.enterUsername("bk");
         loginPage.enterPassword("bk");
