@@ -37,26 +37,11 @@ public class UserStory01 {
         BasicConfigurator.configure();
     }
 
-    /**
-     * User Story 01/AC2
-     */
-    @Test(priority = 1)
-    public void validatePayload() {
-        logger.info("invoked validatePayload test");
-        Assert.assertTrue(this.hero.getNatid().matches("natid-\\d{1,7}"), "Invalid natid format");
-        Assert.assertTrue(this.hero.getName().matches("[A-Za-z\\s]{1,100}"), "Invalid name format");
-        Assert.assertTrue(this.hero.getGender().equals("MALE") || this.hero.getGender().equals("FEMALE"), "Invalid gender");
-        Assert.assertTrue(isValidBirthDateFormat(this.hero.getBirthDate()), "Invalid birthDate format or future date");
-        Assert.assertTrue(this.hero.getDeathDate() == null || isValidDeathDateFormat(this.hero.getDeathDate()), "Invalid deathDate format");
-        Assert.assertTrue(this.hero.getSalary() >= 0, "Salary cannot be negative");
-        Assert.assertTrue(this.hero.getTaxPaid() >= 0, "TaxPaid cannot be negative");
-        Assert.assertTrue(this.hero.getBrowniePoints() == 0 || this.hero.getBrowniePoints() >= 0, "Invalid browniePoints");
-    }
 
     /**
      * User Story 01/AC1
      */
-    @Test(priority = 2)
+    @Test(priority = 2, description = "Verify that the system successfully create the hero with specified payload")
     public void testHeroCreation() {
         logger.info("invoked testHeroCreation test");
         JSONObject heroJSON = new JSONObject(hero);
@@ -70,9 +55,25 @@ public class UserStory01 {
     }
 
     /**
+     * User Story 01/AC2
+     */
+    @Test(priority = 1, description = "Verify invalid data format for request Hero creation")
+    public void validatePayload() {
+        logger.info("invoked validatePayload test");
+        Assert.assertTrue(this.hero.getNatid().matches("natid-\\d{1,7}"), "Invalid natid format");
+        Assert.assertTrue(this.hero.getName().matches("[A-Za-z\\s]{1,100}"), "Invalid name format");
+        Assert.assertTrue(this.hero.getGender().equals("MALE") || this.hero.getGender().equals("FEMALE"), "Invalid gender");
+        Assert.assertTrue(isValidBirthDateFormat(this.hero.getBirthDate()), "Invalid birthDate format or future date");
+        Assert.assertTrue(this.hero.getDeathDate() == null || isValidDeathDateFormat(this.hero.getDeathDate()), "Invalid deathDate format");
+        Assert.assertTrue(this.hero.getSalary() >= 0, "Salary cannot be negative");
+        Assert.assertTrue(this.hero.getTaxPaid() >= 0, "TaxPaid cannot be negative");
+        Assert.assertTrue(this.hero.getBrowniePoints() == 0 || this.hero.getBrowniePoints() >= 0, "Invalid browniePoints");
+    }
+
+    /**
      * User Story 01/AC3
      */
-    @Test(priority = 3)
+    @Test(priority = 3, description = "Validate that the system rejects duplicate <natid> entries as unacceptable behavior")
     public void testHeroRedundancyCheck() {
         logger.info("invoked testHeroCreation test");
         JSONObject heroJSON = new JSONObject(hero);
@@ -87,7 +88,7 @@ public class UserStory01 {
     /**
      * User Story 01/AC4
      */
-    @Test(priority = 4)
+    @Test(priority = 4, description = "Verify record creation in 'WORKING_CLASS_HEROES' database table")
     public void fetchHeroFromDB() {
         logger.info("invoked fetchHeroFromDB test");
         Repository hero = new Repository();

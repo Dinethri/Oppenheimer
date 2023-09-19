@@ -1,11 +1,9 @@
 package test.api;
 
-import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
@@ -24,14 +22,16 @@ public class UserStory06 {
         BasicConfigurator.configure();
     }
 
-    @Test
+    /**
+     * User Story 06/AC1
+     */
+    @Test(priority = 1, description = "Verify that the system successfully retrieve existing voucher details")
     public void testVoucherInsights() {
         logger.info("invoked testVoucherInsights test");
         this.response = given()
                 .spec(ApiSpecifications.getRequestSpecification())
                 .when()
                 .get("/voucher/by-person-and-type");
-
         response.then().statusCode(200);
     }
 }

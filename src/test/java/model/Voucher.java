@@ -20,4 +20,8 @@ public class Voucher {
     public void setVoucherName(String voucherName) {
         this.voucherName = voucherName;
     }
+
+    public Voucher[] getVouchers() {
+        return new Voucher[0];
+    }
 }
