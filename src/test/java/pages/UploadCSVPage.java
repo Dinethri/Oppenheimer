@@ -13,7 +13,7 @@ public class UploadCSVPage {
     }
 
     private By uploadFile = By.id("upload-csv-file");
-    private By clickCreate = By.xpath("/html/body/div[2]/div[3]/div[3]/button");
+    private By submitCsv = By.xpath("//button[normalize-space()='Create']");
     private By getMessage = By.xpath("//*[@id=\"notification-block\"]/div/h3");
 
     public void selectCSV(String filePath) {
@@ -22,7 +22,7 @@ public class UploadCSVPage {
     }
 
     public void createButtonClick() {
-        this.driver.findElement(clickCreate).click();
+        this.driver.findElement(submitCsv).click();
     }
 
     public void implicitlyWait() {

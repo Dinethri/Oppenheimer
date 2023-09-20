@@ -11,7 +11,7 @@ public class DashboardPage {
     }
 
     private By addHeroDropDown = By.id("dropdownMenuButton2");
-    private By selectUploadCSV = By.xpath("/html/body/div[2]/div[2]/div/div/div/ul/li[2]/a[contains(text(),'Upload a csv file')]");
+    private By selectUploadCSV = By.xpath("//a[normalize-space()='Upload a csv file']");
 
     public void clickAddHeroDropdown() {
         driver.findElement(addHeroDropDown).click();

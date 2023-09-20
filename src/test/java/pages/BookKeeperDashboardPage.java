@@ -25,7 +25,6 @@ public class BookKeeperDashboardPage {
 
     public void implicitlyWait() {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        ;
     }
 }
 
